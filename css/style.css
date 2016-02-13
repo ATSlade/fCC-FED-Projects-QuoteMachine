@@ -1,0 +1,266 @@
+/* Random Quote Machine 
+
+-- Brief title paragraph
+-- Create an array of arrays [quote, author]
+-- Create an RNG
+-- Make a "Quote" button which generates a random number
+-- Use that RN as your array index so as to select the target array [quote, author, author pic, wiki link]
+-- Display the quote (background: old text with quill and ink nearby)
+-- Display the author
+-- Display the pic of the author 
+
+-- Next iteration: Use an object of arrays instead of an array or arrays
+-- Next iteration: Make the pics links to wikipedia 
+-- BONUS: Integrate a JS library for transitions  
+-- BONUS: Use an API for a source of quotes */
+
+body {
+   font-family: 'Neuton', serif;  
+}   
+
+#machine {
+   background: url("https://40.media.tumblr.com/84b7ff20fcc5cc3315091934a44a3eef/tumblr_nzyle69OTB1ut3ssoo1_540.png") no-repeat center center;
+   background-size: cover;
+   min-height: 100vh !important;
+}
+
+.description {
+   margin: 50px 0px 80px 0px;
+   color: #482C09;
+}
+
+.one-liner {
+   font-size: 26px;
+   text-align: center;
+}
+
+.quote-gen {
+   max-width: 175px;
+   height: auto;
+   margin: 0 auto;
+   text-align: center;
+   color: #482C09;
+   background: #DBA24C;
+   border-radius: 15px;
+   border: 2px solid #482C09;
+   margin-top: 30px;   
+}
+
+.quote-butt {
+   font-size: 28px;
+   letter-spacing: 1.2px;
+   height: auto;
+   width: auto;
+   background: #DBA24C;
+   border: none !important;
+   box-shadow: none !important;
+   border-color: none !imporant;
+   color: none !important;
+}
+
+.quote-butt:focus {
+   border: none !important;
+   box-shadow: none !important;
+   border-color: none !imporant;
+   color: none !important;
+   outline: 0 none;
+}
+
+.jumbotron {
+   max-width: 900px;
+   margin: 0 auto;
+   background-color: rgba(118, 73, 13, 0.5);
+   color: rgba(0, 0, 0, 1);
+   border-radius: 38px;
+   border: 1px solid #482C09;
+   min-height: 250px;
+   margin-bottom: 50px;
+}
+
+#quote {
+   font-size: 24px;
+   text-align: center;
+   padding-top: 5px;
+   margin-bottom: 0px;
+}
+
+#attributed {
+   float: right;
+   font-size: 24px;
+   margin-bottom: 55px;
+}
+
+.thumbnail {
+   border: 2px solid #482C09;
+   padding: 0px;
+   margin: 0px 0px 0px 40px;
+   width: 185px;
+   height: 155px;
+   overflow: hidden;
+}
+
+#tweet-button {
+   font-size: 40px;
+   color: #482C09;
+   background-color: #DBA24C;
+   border: 2px solid #482C09;
+   border-radius: 100%;
+   padding: 8px;
+}    
+
+
+
+@media only screen and (min-width: 320px) and (max-width: 479px){ 
+
+.one-liner {
+   font-size: 18px;
+   text-align: center;
+}
+
+.quote-gen {
+   max-width: 100px;
+   height: auto;
+   margin: 0 auto;
+   margin-top: 30px;   
+}
+
+.quote-butt {
+   font-size: 20px;
+}
+
+.jumbotron {
+   max-width: 600px;
+   margin: 0 auto;
+   min-height: 250px;
+   margin-bottom: 50px;
+}
+
+#quote {
+   font-size: 18px;
+   padding-top: 5px;
+   margin-bottom: 10px;
+}
+
+#attributed {
+   float: right;
+   font-size: 16px;
+}   
+
+.thumbnail {
+   padding: 0px;
+   margin: 20px 0px 0px 0px;
+   width: 130px;
+   height: 105px;
+   overflow: hidden;
+}
+
+#tweet-button {
+   font-size: 26px;
+   padding: 8px;
+}       
+}
+
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+   .one-liner {
+   font-size: 20px;
+   text-align: center;
+}
+
+.quote-gen {
+   max-width: 100px;
+   height: auto;
+   margin: 0 auto;
+   margin-top: 30px;   
+}
+
+.quote-butt {
+   font-size: 22px;
+}
+
+.jumbotron {
+   max-width: 650px;
+   margin: 0 auto;
+   min-height: 250px;
+   margin-bottom: 30px;
+}
+
+#quote {
+   font-size: 20px;
+   padding-top: 5px;
+   margin-bottom: 10px;
+}
+
+#attributed {
+   float: right;
+   font-size: 18px;
+   margin-right: 100px;
+   margin-top: 30px;
+}   
+
+.thumbnail {
+   padding: 0px;
+   margin: 20px 0px 0px 130px;
+   width: 140px;
+   height: 115px;
+   overflow: hidden;
+}
+
+#tweet-button {
+   font-size: 26px;
+   padding: 8px;
+} 
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .one-liner {
+   font-size: 22px;
+   text-align: center;
+}
+
+.quote-gen {
+   max-width: 100px;
+   height: auto;
+   margin: 0 auto;
+   margin-top: 30px;   
+}
+
+.quote-butt {
+   font-size: 26px;
+}
+
+.jumbotron {
+   max-width: 800px;
+   margin: 0 auto;
+   min-height: 250px;
+   margin-bottom: 30px;
+}
+
+#quote {
+   font-size: 22px;
+   padding-top: 5px;
+   margin-bottom: 10px;
+}
+
+#attributed {
+   float: right;
+   font-size: 22px;
+   margin-right: 100px;
+   margin-top: 30px;
+}   
+
+.thumbnail {
+   padding: 0px;
+   margin: 20px 0px 0px 130px;
+   width: 155px;
+   height: 130px;
+   overflow: hidden;
+}
+
+#tweet-button {
+   font-size: 30px;
+   padding: 8px;
+}   
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1999px){ ... }
